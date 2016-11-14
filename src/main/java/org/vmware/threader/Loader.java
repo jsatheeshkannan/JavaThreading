@@ -23,8 +23,21 @@ public static void main(String[] args) throws InterruptedException {
 	
 	
 	//Thread Grouping with thread names
-	threadgrouping();
+	//threadgrouping();
+
+	Runtime rt1 = Runtime.getRuntime();
 	
+	ShutdownThread st1 = new ShutdownThread();
+	rt1.addShutdownHook(st1);
+	System.out.println("main thread sleeping");
+	
+	try{
+		Thread.sleep(6000);
+	}catch(Exception e){
+		
+		e.printStackTrace();
+	}
+	System.out.println("completed");
 }
 
 private static void threadgrouping() {
